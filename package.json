@@ -1,8 +1,4 @@
-{
-  "dependencies": {
-    "@capacitor/android": "^5.5.1",
-    "@capacitor/cli": "^5.5.1",
-    "@capacitor/core": "^5.5.1",
-    "@capacitor/ios": "^5.5.1"
-  }
+"scripts": {
+  "build": "vite build",
+  "dev": "vite"
 }

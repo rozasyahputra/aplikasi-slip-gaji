@@ -1,0 +1,8 @@
+{
+  "appId": "com.daffa.slipgaji",
+  "appName": "Aplikasi Slip Gaji",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

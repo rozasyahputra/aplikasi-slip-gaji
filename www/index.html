@@ -1,48 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplikasi Slip Gaji</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
-    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    input, button { width: 100%; padding: 12px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; }
-    button { background: #4CAF50; color: white; border: none; cursor: pointer; font-weight: bold; }
-    button:hover { background: #45a049; }
-    .result { margin-top: 20px; padding: 15px; background: #e8f5e9; border-radius: 4px; display: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: #f5f5f5; 
+        }
+        .container { 
+            max-width: 400px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        input, button { 
+            width: 100%; 
+            padding: 10px; 
+            margin: 5px 0; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            box-sizing: border-box; 
+        }
+        button { 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            font-weight: bold; 
+        }
+        button:hover { 
+            background: #0056b3; 
+        }
+        .hasil { 
+            margin-top: 15px; 
+            padding: 10px; 
+            background: #d4edda; 
+            border-radius: 5px; 
+            display: none; 
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h2>💰 Aplikasi Slip Gaji</h2>
-    <input type="text" id="nama" placeholder="Nama Karyawan">
-    <input type="number" id="gaji" placeholder="Gaji Pokok">
-    <input type="number" id="lembur" placeholder="Uang Lembur">
-    <button onclick="hitung()">Hitung Gaji</button>
-    
-    <div id="hasil" class="result">
-      <h3>Hasil Perhitungan:</h3>
-      <p id="output"></p>
+    <div class="container">
+        <h2>Kalkulator Sederhana</h2>
+        <input type="number" id="angka1" placeholder="Masukkan angka 1">
+        <input type="number" id="angka2" placeholder="Masukkan angka 2">
+        <button onclick="hitung()">Hitung</button>
+        <div id="hasil" class="hasil"></div>
     </div>
-  </div>
 
-  <script>
+    <script>
     function hitung() {
-      const nama = document.getElementById('nama').value;
-      const gaji = parseFloat(document.getElementById('gaji').value) || 0;
-      const lembur = parseFloat(document.getElementById('lembur').value) || 0;
-      const total = gaji + lembur;
-      
-      document.getElementById('output').innerHTML = `
-        <strong>Nama:</strong> ${nama}<br>
-        <strong>Gaji Pokok:</strong> Rp ${gaji.toLocaleString()}<br>
-        <strong>Lembur:</strong> Rp ${lembur.toLocaleString()}<br>
-        <hr>
-        <strong>Total Gaji: Rp ${total.toLocaleString()}</strong>
-      `;
-      document.getElementById('hasil').style.display = 'block';
+        const a = parseFloat(document.getElementById('angka1').value) || 0;
+        const b = parseFloat(document.getElementById('angka2').value) || 0;
+        
+        const tambah = a + b;
+        const kurang = a - b;
+        const kali = a * b;
+        const bagi = b !== 0 ? (a / b).toFixed(2) : 'Tidak bisa dibagi 0';
+        
+        document.getElementById('hasil').innerHTML = `
+            <strong>Hasil:</strong><br>
+            ${a} + ${b} = ${tambah}<br>
+            ${a} - ${b} = ${kurang}<br>
+            ${a} x ${b} = ${kali}<br>
+            ${a} : ${b} = ${bagi}
+        `;
+        document.getElementById('hasil').style.display = 'block';
     }
-  </script>
+    </script>
 </body>
 </html>
